@@ -6,7 +6,7 @@ import time
 
 class PostRemovalBot():
     def __init__(self):
-        self.user_agent = "PostRemovalBot / V1.0 by ScoopJr"
+        self.user_agent = "PostRemovalBot / V1.1 by ScoopJr"
         print('Starting up...', self.user_agent)
         CONFIG = ConfigParser()
         CONFIG.read('config.ini')
@@ -16,6 +16,7 @@ class PostRemovalBot():
         self.secret = CONFIG.get('main', 'SECRET')
         self.subreddit = CONFIG.get('main', 'SUBREDDIT')
         self.type = CONFIG.get('main', 'TYPE')
+        self.type = self.type.replace("'", "\"")
         self.token_url = "https://www.reddit.com/api/v1/access_token"
         self.token = ""
         self.t_type = ""
@@ -32,10 +33,10 @@ class PostRemovalBot():
     def get_json_file(self):
         """Gets removal reason json file"""
         try:
-            with open("removal.json", "r") as f:
+            with open("removalreasons.json", "r") as f:
                 self.flair_and_reason = json.loads(f.read())
         except FileNotFoundError:
-            print("removal.json could not be found!")
+            print("removalreasons.json could not be found!")
 
     def get_token(self):
         """ Retrieves token for Reddit API."""
@@ -51,12 +52,13 @@ class PostRemovalBot():
     def main(self):
         while True:
             print("...Searching for the correct post flairs!")
-            for flair in self.keys:
-                for post in self.reddit.subreddit(self.subreddit).search(query=f"flair:\"{flair}\""):
-                    if post.link_flair_text in self.keys:
-                        post.mod.remove()
-                        post.mod.send_removal_message(self.flair_and_reason[post.link_flair_text], type=self.type)
-                        print(f"Removed: {post.name}")
+            for post in self.reddit.subreddit(self.subreddit).stream.submissions(pause_after=1):
+                if post is None:
+                    break
+                if post.link_flair_text in self.keys:
+                    post.mod.remove()
+                    post.mod.send_removal_message(self.flair_and_reason[post.link_flair_text], type=self.type)
+                    print(f"Removed: {post.name}")
             print(f"...Taking a small break!  Be back in {self.delay} seconds")
             time.sleep(self.delay)
 
