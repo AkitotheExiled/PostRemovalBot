@@ -16,7 +16,7 @@ class PostRemovalBot():
         self.secret = CONFIG.get('main', 'SECRET')
         self.subreddit = CONFIG.get('main', 'SUBREDDIT')
         self.type = CONFIG.get('main', 'TYPE')
-        self.type = self.type.replace("'", "\"")
+        self.type = "public"
         self.token_url = "https://www.reddit.com/api/v1/access_token"
         self.token = ""
         self.t_type = ""
