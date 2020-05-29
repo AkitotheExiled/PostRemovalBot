@@ -79,6 +79,11 @@ SECRET= daklfanlfkanl392r29neorfjs
 SUBREDDIT= mysubredditexample
 TYPE="public"
 DELAY_BETWEEN_RUNS=180
+
+[MSG]
+HEADER=Hey {author}! Your submission has been removed for the following reason:
+FOOTER=Check out the rules of the subreddit [here.](yourruleslink)
+FOOTER2=Disagree with this ruling? Please contact the moderators.
 ```
 * Open the removalreasons.json file, and start adding in your removal flairs and your reasons.
 ```
