@@ -19,6 +19,7 @@ pip install praw
 * Download Python 3.7: https://www.python.org/downloads/release/python-370/
 * Add Python to Path by selecting box during installation or manually adding to Path(https://datatofish.com/add-python-to-windows-path/)
 * Open up Command Prompt and type "python", it should tell you the version if its installed correctly.
+
 ### Removal Flairs
 * Go to your subreddit, www.reddit.com/r/subreddit 
 * Select Mod Tools, near the "About Community" section
@@ -35,6 +36,7 @@ Rule1
 Rule2
 Rule3
 ```
+
 ### Secret and Client_ID
 * Go to reddit.com and select user settings
 * Select Privacy & Security
@@ -54,6 +56,7 @@ Rule3
 ```
 daklfanlfkanl392r29neorfjs
 ```
+
 **Client_ID**
 * Look at PostRemovalBot by ScoopJr, and right under Personal Use Script, is our client_id
 * Copy the text and save it somewhere
@@ -66,10 +69,14 @@ ddMaksjJsuyeb
 ### Installation for Home PC
 * Open up your Command Prompt again, type 
 ```
-pip install praw
+python pip install praw
 ```
 * Download the ZIP file and extract the contents to your desktop
 * Open the config.ini file and place your information inside and save the file
+
+**NEW HEADER/FOOTER** 
+* Add a customized header/footer by editing the HEADER text.  
+* {author} is author's name.  Please leave {author} inside HEADER.
 ```
 [main]
 USER = example
