@@ -69,7 +69,7 @@ ddMaksjJsuyeb
 ### Installation for Home PC
 * Open up your Command Prompt again, type 
 ```
-pip install praw
+python pip install praw
 ```
 * Download the ZIP file and extract the contents to your desktop
 * Open the config.ini file and place your information inside and save the file
