@@ -21,7 +21,11 @@ urllib3==1.25.9
 websocket-client==0.57.0
 
 ```
-
+* Open up your command prompt
+* Navigate to the directory your bot is in
+```
+cd desktop/PostRemovalBot
+```
 ```
 python pip install requirements.txt
 ```
