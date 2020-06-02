@@ -4,14 +4,26 @@
 Flair posts that break your rules and this bot will remove them and leave a comment
 
 ### Preqs
-* PRAW
-* configparser
-* requests
-* json
-* time
+```
+altgraph==0.17
+certifi==2020.4.5.1
+chardet==3.0.4
+future==0.18.2
+idna==2.9
+pefile==2019.4.18
+praw==7.0.0
+prawcore==1.3.0
+pywin32-ctypes==0.2.0
+requests==2.23.0
+six==1.15.0
+update-checker==0.17
+urllib3==1.25.9
+websocket-client==0.57.0
 
 ```
-pip install praw 
+
+```
+python pip install requirements.txt
 ```
 (Everything else included in Python library)
 
