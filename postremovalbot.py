@@ -6,7 +6,7 @@ import time
 
 class PostRemovalBot():
     def __init__(self):
-        self.user_agent = "PostRemovalBot / V1.3 by ScoopJr"
+        self.user_agent = "PostRemovalBot / V1.2 by ScoopJr"
         print('Starting up...', self.user_agent)
         CONFIG = ConfigParser()
         CONFIG.read('config.ini')
@@ -68,7 +68,7 @@ class PostRemovalBot():
                 if post.link_flair_text in self.keys:
                     post.mod.remove()
                     msg = self.format_removal_message(author_name=post.author.name, removal_reason=self.flair_and_reason[post.link_flair_text])
-                    post.mod.send_removal_message(msg, type=self.type) # Lets user know why the bot was removed
+                    post.mod.send_removal_message(msg, type=self.type)
                     print(f"Removed: {post.name}")
             print(f"...Taking a small break!  Be back in {self.delay} seconds")
             time.sleep(self.delay)
