@@ -66,7 +66,7 @@ class PostRemovalBot():
                 if post is None:
                     break
                 if post.link_flair_text in self.keys:
-                    post.mod.remove(mod_note=str(self.flair_and_reason[post.link_flair_text])) # Removes bot with removal reason found in removalreasons.json
+                    post.mod.remove()
                     msg = self.format_removal_message(author_name=post.author.name, removal_reason=self.flair_and_reason[post.link_flair_text])
                     post.mod.send_removal_message(msg, type=self.type) # Lets user know why the bot was removed
                     print(f"Removed: {post.name}")
